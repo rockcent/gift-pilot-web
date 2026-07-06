@@ -56,12 +56,13 @@ export const useAIStore = create<AIState>((set, get) => ({
   ask: async (raw) => {
     const res = await aiMock.ask(raw);
     if (res.ok && res.data) {
+      const data = res.data;  // 捕获到 const，让 TS narrow 通过 set() 闭包传递
       set((s) => ({ askHistory: [...s.askHistory, { role: 'user', text: raw, ts: Date.now() }] }));
-      if (res.data.type === 'recommend') {
-        set({ recommendation: res.data.recommendation, lastQuery: res.data.recommendation.query });
-        set((s) => ({ askHistory: [...s.askHistory, { role: 'assistant', text: `为你推荐 ${res.data!.recommendation.gifts.length} 份合适的礼物`, ts: Date.now() }] }));
-      } else if (res.data.type === 'greeting') {
-        set((s) => ({ askHistory: [...s.askHistory, { role: 'assistant', text: res.data!.message, ts: Date.now() }] }));
+      if (data.type === 'recommend') {
+        set({ recommendation: data.recommendation, lastQuery: data.recommendation.query });
+        set((s) => ({ askHistory: [...s.askHistory, { role: 'assistant', text: `为你推荐 ${data.recommendation.gifts.length} 份合适的礼物`, ts: Date.now() }] }));
+      } else if (data.type === 'greeting') {
+        set((s) => ({ askHistory: [...s.askHistory, { role: 'assistant', text: data.message, ts: Date.now() }] }));
       }
     }
     return res;

@@ -61,7 +61,7 @@ fi
 # 3. 远端准备
 echo ""
 echo "[3/5] prepare remote ${SSH_TARGET}:${REMOTE_TMP} ..."
-ssh "${SSH_ARGS[@]}" "$SSH_TARGET" "sudo mkdir -p '$REMOTE_TMP' '$REMOTE_SITE_DIR/backups' '$REMOTE_CERTBOT_WEBROOT' && sudo chown -R $(id -un):$(id -gn) '$REMOTE_TMP' '$REMOTE_CERTBOT_WEBROOT'"
+ssh "${SSH_ARGS[@]}" "$SSH_TARGET" "sudo mkdir -p '$REMOTE_TMP' '$REMOTE_SITE_DIR/backups' '$REMOTE_CERTBOT_WEBROOT' && sudo chown -R \$USER:rockops '$REMOTE_TMP' '$REMOTE_CERTBOT_WEBROOT'"
 
 # 4. rsync dist/ + nginx 配置
 echo ""
