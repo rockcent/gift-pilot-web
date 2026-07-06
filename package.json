@@ -18,7 +18,10 @@
     "test:watch": "jest --watch",
     "smoke:web": "node ./scripts/smoke-web.mjs",
     "check:platform-deps": "node ./scripts/check-platform-deps-local.mjs",
-    "check:no-sensitive": "node ./scripts/check-no-sensitive.mjs"
+    "check:no-sensitive": "node ./scripts/check-no-sensitive.mjs",
+    "deploy:preflight": "bash scripts/deploy-preflight.sh",
+    "deploy:production": "bash scripts/deploy-production.sh",
+    "deploy:dry-run": "RSYNC_DRY_RUN=1 bash scripts/deploy-production.sh"
   },
   "dependencies": {
     "react": "^18.2.0",

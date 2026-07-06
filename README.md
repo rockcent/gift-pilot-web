@@ -53,6 +53,11 @@ pnpm run test                  # 跑 jest
 pnpm run smoke:web             # 跑 smoke（无需安装依赖）
 pnpm run check:platform-deps   # 平台 pin 检查
 pnpm run check:no-sensitive    # 敏感信息扫描
+
+# 部署到 aliyun-rockcent-prod（详见 cloud-server-ops/runbooks/giftpilot-web-deploy.md）
+pnpm run deploy:preflight      # 部署前 8 项检查
+pnpm run deploy:dry-run        # 看 rsync 计划，不实际改
+pnpm run deploy:production     # 真实部署（PM Mac 终端跑，沙箱拦 SSH）
 ```
 
 ## 管理后台登录
@@ -82,3 +87,16 @@ MVP 阶段：单一密码 `admin123`（.env.example 占位）。
 - 单组件 / 单页面 / 单测改动 → 可派给本地 `claude -p --permission-mode dontAsk`
 - 跨文件架构 / 平台 pin / admin 鉴权 / 宪法红线 → Codex 主导
 - admin 鉴权 / 宪法红线改动 → 必走 SDD 评审
+
+
+## 部署（aliyun-rockcent-prod）
+
+| 项 | 值 |
+|---|---|
+| 域名 | `https://giftpilot.rockcent.com/` |
+| 静态目录 | `/usr/share/nginx/giftpilot/dist/` |
+| Nginx 配置 | `/etc/nginx/conf.d/giftpilot.rockcent.com.conf` |
+| 部署脚本 | `scripts/deploy-production.sh` |
+| Runbook | `cloud-server-ops/runbooks/giftpilot-web-deploy.md` |
+
+首次部署需先 `certbot --webroot` 领取 LE 证书（详见 runbook Step 0-3），之后 `npm run deploy:production` 即可一键更新。
