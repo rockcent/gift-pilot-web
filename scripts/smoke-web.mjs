@@ -11,7 +11,9 @@ function bad(label) { errs.push(label); }
 
 /* 1. 平台 pin */
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
-const platformDep = pkg.dependencies?.['@rockcent/platform'];
+const platformDep =
+  pkg.dependencies?.['@rockcent/platform'] ??
+  pkg.optionalDependencies?.['@rockcent/platform'];
 if (platformDep?.startsWith('git+https://github.com/rockcent/rockcent-platform.git#platform-v')) ok('platform pin');
 else bad('platform pin missing or wrong form: ' + platformDep);
 

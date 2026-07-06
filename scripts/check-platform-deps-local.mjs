@@ -4,7 +4,11 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
-const all = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) };
+const all = {
+  ...(pkg.dependencies || {}),
+  ...(pkg.devDependencies || {}),
+  ...(pkg.optionalDependencies || {}),
+};
 const platform = all['@rockcent/platform'];
 
 let ok = true;

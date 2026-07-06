@@ -34,8 +34,8 @@ jobs:
       - name: Smoke (10 user + 8 admin + 6 AI labels + §6.8 admin ban)
         run: node ./scripts/smoke-web.mjs
 
-      - name: Install deps
-        run: npm ci --no-audit --no-fund --legacy-peer-deps
+      - name: Install deps (use install not ci: @rockcent/platform is in optionalDependencies, optional fail must be WARN not abort)
+        run: npm install --no-audit --no-fund --legacy-peer-deps
 
       - name: Build
         run: npm run build
