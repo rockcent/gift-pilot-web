@@ -1,0 +1,93 @@
+name: gift-pilot-web deploy to aliyun-rockcent-prod
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run only (rsync plan + preflight, no real deploy)"
+        required: false
+        default: "false"
+        type: choice
+        options: ["true", "false"]
+
+# 关键安全：production deploy 永远只允许手动触发 + main 分支
+concurrency:
+  group: deploy-gift-pilot-web
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    name: Pre-flight checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Platform pin check
+        run: node ./scripts/check-platform-deps-local.mjs
+
+      - name: Sensitive scan
+        run: node ./scripts/check-no-sensitive.mjs
+
+      - name: Smoke (10 user + 8 admin + 6 AI labels + §6.8 admin ban)
+        run: node ./scripts/smoke-web.mjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ github.sha }}
+          path: dist/
+
+  deploy:
+    name: Deploy via SSH to aliyun-rockcent-prod
+    needs: preflight
+    runs-on: ubuntu-latest
+    # 只在 main 分支 + 手动触发时跑
+    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ github.sha }}
+          path: dist/
+
+      - name: Sync to remote + reload nginx
+        env:
+          SSH_KEY: ${{ secrets.ALIYUN_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.ALIYUN_HOST }}
+          REMOTE_USER: rockops
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_ed25519_rockcent_root
+          chmod 600 ~/.ssh/id_ed25519_rockcent_root
+          ssh-keyscan -H "$REMOTE_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+          if [ "$DRY_RUN" = "true" ]; then
+            RSYNC_DRY_RUN=1 bash scripts/deploy-production.sh
+          else
+            bash scripts/deploy-production.sh
+          fi
+
+      - name: Public smoke
+        if: env.DRY_RUN != 'true'
+        run: |
+          sleep 3
+          curl -sI -m 15 https://gift.rockcent.com/ | head -3
+          curl -sI -m 15 https://gift.rockcent.com/admin/login | head -3
+          # SPA fallback
+          curl -sI -m 15 https://gift.rockcent.com/admin/dashboard | head -3
+          # assets reachable
+          ASSET=$(curl -s https://gift.rockcent.com/ | grep -oE 'assets/index-[A-Za-z0-9]+\.js' | head -1)
+          [ -n "$ASSET" ] && curl -sI -m 15 "https://gift.rockcent.com/$ASSET" | head -3
+
+# 必填 GitHub Secrets（在 rockcent/gift-pilot-web 仓库 Settings → Secrets）：
+# - ALIYUN_SSH_KEY: rockops 用户私钥全文（含 BEGIN/END 行）
+# - ALIYUN_HOST: 8.138.150.206
