@@ -35,7 +35,7 @@ jobs:
         run: node ./scripts/smoke-web.mjs
 
       - name: Install deps
-        run: npm install --no-audit --no-fund --legacy-peer-deps
+        run: npm ci --no-audit --no-fund --legacy-peer-deps
 
       - name: Build
         run: npm run build
