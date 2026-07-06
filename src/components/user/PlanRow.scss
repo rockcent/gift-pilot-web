@@ -1,0 +1,23 @@
+.gp-plan-row {
+  display: flex;
+  align-items: stretch;
+  background-color: var(--brand-bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.gp-plan-row__date {
+  width: 64px;
+  background: linear-gradient(160deg, var(--brand-green), var(--brand-apricot));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+.gp-plan-row__body { flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 6px; }
+.gp-plan-row__top { display: flex; align-items: center; justify-content: space-between; }
+.gp-plan-row__scene { font-size: 15px; font-weight: 600; color: var(--brand-ink); }
+.gp-plan-row__meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--brand-muted); }

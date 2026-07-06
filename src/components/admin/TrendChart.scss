@@ -1,0 +1,10 @@
+.gp-trend {
+  background-color: var(--brand-bg-card);
+  border-radius: var(--radius-card);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-card);
+}
+.gp-trend__legend { display: flex; gap: 16px; margin-bottom: 12px; }
+.gp-trend__legend-item { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--brand-ink-2); }
+.gp-trend__dot { width: 10px; height: 10px; border-radius: 50%; }
+.gp-trend__svg { width: 100%; height: auto; display: block; }

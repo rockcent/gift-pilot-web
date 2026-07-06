@@ -1,0 +1,19 @@
+.gp-amc {
+  background-color: var(--brand-bg-card);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.gp-amc__label { font-size: 13px; color: var(--brand-muted); }
+.gp-amc__value { font-size: 30px; font-weight: 700; line-height: 1.2; }
+.gp-amc--green .gp-amc__value { color: var(--brand-green); }
+.gp-amc--apricot .gp-amc__value { color: #B0701F; }
+.gp-amc--coral .gp-amc__value { color: var(--brand-coral); }
+.gp-amc--ink .gp-amc__value { color: var(--brand-ink); }
+.gp-amc__delta { font-size: 13px; font-weight: 500; }
+.gp-amc__delta--up { color: var(--brand-green); }
+.gp-amc__delta--down { color: var(--brand-coral); }
+.gp-amc__hint { font-size: 11px; color: var(--brand-muted); }

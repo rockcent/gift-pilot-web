@@ -1,0 +1,40 @@
+.gp-admin-drawer {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+}
+.gp-admin-drawer__panel {
+  background-color: var(--brand-bg-card);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.1);
+}
+.gp-admin-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--brand-line);
+}
+.gp-admin-drawer__head h3 { margin: 0; font-size: 18px; font-weight: 600; }
+.gp-admin-drawer__close {
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: var(--brand-muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gp-admin-drawer__close:hover { background-color: var(--brand-bg); }
+.gp-admin-drawer__body { flex: 1; overflow-y: auto; padding: 20px; }
+.gp-admin-drawer__footer { padding: 16px 20px; border-top: 1px solid var(--brand-line); display: flex; gap: 8px; justify-content: flex-end; }

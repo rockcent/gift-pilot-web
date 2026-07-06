@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.cache/
+.taro/
+
+.env
+.env.local
+.env.production
+
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+coverage/
+
+tmp/

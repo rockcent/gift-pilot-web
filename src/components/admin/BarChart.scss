@@ -1,0 +1,6 @@
+.gp-bar { display: flex; flex-direction: column; gap: 10px; }
+.gp-bar__row { display: grid; grid-template-columns: 100px 1fr 60px; align-items: center; gap: 8px; font-size: 13px; }
+.gp-bar__label { color: var(--brand-ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gp-bar__track { height: 10px; background-color: var(--brand-line); border-radius: 999px; overflow: hidden; }
+.gp-bar__fill { height: 100%; background: linear-gradient(90deg, var(--brand-green), var(--brand-apricot)); border-radius: 999px; }
+.gp-bar__value { color: var(--brand-green); font-weight: 600; text-align: right; }

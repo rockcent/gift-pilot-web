@@ -1,0 +1,22 @@
+.gp-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.gp-filter-bar__left { display: flex; gap: 8px; flex-wrap: wrap; }
+.gp-filter-bar__right { display: flex; gap: 8px; }
+.gp-filter-bar select, .gp-filter-bar input {
+  padding: 8px 12px;
+  border: 1px solid var(--brand-line);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  background-color: var(--brand-bg-card);
+  color: var(--brand-ink);
+  outline: none;
+}
+.gp-filter-bar select:focus, .gp-filter-bar input:focus {
+  border-color: var(--brand-green);
+}

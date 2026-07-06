@@ -1,0 +1,33 @@
+name: gift-pilot-web CI
+
+on:
+  push:
+    branches: [main, 'codex/**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    name: Smoke + Platform Pin + Sensitive Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check platform pin
+        run: node ./scripts/check-platform-deps-local.mjs
+
+      - name: Sensitive scan
+        run: node ./scripts/check-no-sensitive.mjs
+
+      - name: Smoke (10 user + 8 admin + 6 AI labels + §6.8 admin ban)
+        run: node ./scripts/smoke-web.mjs
+
+      # lint / build / test 需要真实安装 @rockcent/platform 与 Vite 才能跑；
+      # 阶段二接通真实仓后启用：
+      # - run: pnpm install --frozen-lockfile
+      # - run: pnpm run lint
+      # - run: pnpm run build
+      # - run: pnpm test -- --passWithNoTests
