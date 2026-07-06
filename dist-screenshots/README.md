@@ -2,6 +2,8 @@
 
 `vite build` + headless Chrome 渲染的 18 张 H5 视图截图（420x820 viewport @ devicePixelRatio 2）。
 
+> **完整视觉预览集：28 张**（本目录 18 张 + 小程序 10 张，参见 [`../../gift-pilot-miniprogram/dist-screenshots/`](../../gift-pilot-miniprogram/dist-screenshots/)）。
+
 ## 截图清单
 
 ### C 端用户界面（11 张 · 420x820）
@@ -76,6 +78,17 @@ done
 # 4. Admin 内部 7 张（puppeteer 注入 session）
 node ./scripts/screenshot-admin.mjs
 ```
+
+## 与小程序端的对比
+
+| 维度 | 网页端（本目录） | 小程序 |
+|---|---|---|
+| 用户界面 | ✅ 10 页 C 端 + 8 页 admin | ✅ 10 页 |
+| 视觉 token | ✅ | ✅ |
+| 平台构建 | Vite 5 + React | Taro 3.6 H5 |
+| 截图张数 | 18 | 10 |
+
+两份截图源（types / data / services / mock）1:1，**视觉与文案完全一致**，是阶段二接通真实后端的回归 baseline。
 
 ## 下一步
 
