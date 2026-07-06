@@ -58,8 +58,8 @@ else
 fi
 
 # 7. nginx 配置结构存在
-if [ ! -f "nginx/giftpilot.rockcent.com.conf" ]; then
-  bad "nginx/giftpilot.rockcent.com.conf missing"
+if [ ! -f "nginx/gift.rockcent.com.conf" ]; then
+  bad "nginx/gift.rockcent.com.conf missing"
 else
   ok "nginx config present"
 fi

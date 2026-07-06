@@ -93,9 +93,9 @@ MVP 阶段：单一密码 `admin123`（.env.example 占位）。
 
 | 项 | 值 |
 |---|---|
-| 域名 | `https://giftpilot.rockcent.com/` |
+| 域名 | `https://gift.rockcent.com/` |
 | 静态目录 | `/usr/share/nginx/giftpilot/dist/` |
-| Nginx 配置 | `/etc/nginx/conf.d/giftpilot.rockcent.com.conf` |
+| Nginx 配置 | `/etc/nginx/conf.d/gift.rockcent.com.conf` |
 | 部署脚本 | `scripts/deploy-production.sh` |
 | Runbook | `cloud-server-ops/runbooks/giftpilot-web-deploy.md` |
 

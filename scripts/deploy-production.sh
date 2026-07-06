@@ -16,8 +16,8 @@
 # 前置：
 #   - npm run build 已生成 dist/
 #   - SSH key ~/.ssh/id_ed25519_rockcent_root 可用
-#   - 远端 nginx 已有 certbot 颁发的 giftpilot.rockcent.com 证书
-#     （首次部署前需手动：ssh aliyun 'sudo certbot certonly --webroot -w /var/www/certbot -d giftpilot.rockcent.com'）
+#   - 远端 nginx 已有 certbot 颁发的 gift.rockcent.com 证书
+#     （首次部署前需手动：ssh aliyun 'sudo certbot certonly --webroot -w /var/www/certbot -d gift.rockcent.com'）
 
 set -euo pipefail
 
@@ -30,7 +30,7 @@ REMOTE_USER="${REMOTE_USER:-rockops}"
 REMOTE_KEY="${REMOTE_KEY:-$HOME/.ssh/id_ed25519_rockcent_root}"
 REMOTE_SITE_DIR="${REMOTE_SITE_DIR:-/usr/share/nginx/giftpilot}"
 REMOTE_TMP="${REMOTE_TMP:-/tmp/giftpilot-release}"
-REMOTE_NGINX_CONF_PATH="${REMOTE_NGINX_CONF_PATH:-/etc/nginx/conf.d/giftpilot.rockcent.com.conf}"
+REMOTE_NGINX_CONF_PATH="${REMOTE_NGINX_CONF_PATH:-/etc/nginx/conf.d/gift.rockcent.com.conf}"
 REMOTE_CERTBOT_WEBROOT="${REMOTE_CERTBOT_WEBROOT:-/var/www/certbot}"
 RSYNC_DRY_RUN="${RSYNC_DRY_RUN:-0}"
 
@@ -79,7 +79,7 @@ rsync "${rsync_args[@]}" \
 # 4b. nginx 配置
 rsync "${rsync_args[@]}" \
   -e "ssh ${SSH_ARGS[*]}" \
-  "$ROOT_DIR/nginx/giftpilot.rockcent.com.conf" "${SSH_TARGET}:${REMOTE_TMP}/giftpilot.rockcent.com.conf"
+  "$ROOT_DIR/nginx/gift.rockcent.com.conf" "${SSH_TARGET}:${REMOTE_TMP}/gift.rockcent.com.conf"
 
 if [ "$RSYNC_DRY_RUN" = "1" ]; then
   echo ""
@@ -105,7 +105,7 @@ fi
 sudo rm -rf "$REMOTE_SITE_DIR/dist"
 sudo mkdir -p "$REMOTE_SITE_DIR/dist"
 sudo rsync -a "$REMOTE_TMP/dist/" "$REMOTE_SITE_DIR/dist/"
-sudo chown -R root:webdeploy "$REMOTE_SITE_DIR/dist"
+sudo chown -R root:root "$REMOTE_SITE_DIR/dist"
 sudo find "$REMOTE_SITE_DIR/dist" -type d -exec chmod 2775 {} +
 sudo find "$REMOTE_SITE_DIR/dist" -type f -exec chmod 664 {} +
 
@@ -113,7 +113,7 @@ sudo find "$REMOTE_SITE_DIR/dist" -type f -exec chmod 664 {} +
 if [ -f "$REMOTE_NGINX_CONF_PATH" ]; then
   sudo cp "$REMOTE_NGINX_CONF_PATH" "$REMOTE_NGINX_CONF_PATH.bak.\$TS"
 fi
-sudo install -o root -g root -m 0644 "$REMOTE_TMP/giftpilot.rockcent.com.conf" "$REMOTE_NGINX_CONF_PATH"
+sudo install -o root -g root -m 0644 "$REMOTE_TMP/gift.rockcent.com.conf" "$REMOTE_NGINX_CONF_PATH"
 
 # nginx 配置检查
 if ! sudo nginx -t; then
@@ -128,10 +128,10 @@ sudo systemctl reload nginx
 
 echo "[deploy-production] OK — deployed at \$TS"
 echo "  backup:   $REMOTE_SITE_DIR/backups/\$TS"
-echo "  domain:   https://giftpilot.rockcent.com/"
+echo "  domain:   https://gift.rockcent.com/"
 EOF
 
 echo ""
 echo "[deploy-production] done"
-echo "  ✓ https://giftpilot.rockcent.com/  应返回 200"
-echo "  ✓ 公网 smoke 入口: curl -sI https://giftpilot.rockcent.com/"
+echo "  ✓ https://gift.rockcent.com/  应返回 200"
+echo "  ✓ 公网 smoke 入口: curl -sI https://gift.rockcent.com/"
