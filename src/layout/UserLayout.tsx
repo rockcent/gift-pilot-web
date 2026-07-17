@@ -1,6 +1,7 @@
 import { NavLink, Outlet, Link } from 'react-router-dom';
 import { Brand } from '../components/user/Brand';
 import { AISixBanner } from '../components/user/AISixBanner';
+import { ConsentBanner } from '../components/compliance/ConsentBanner';
 import './UserLayout.scss';
 
 const NAV = [
@@ -50,8 +51,19 @@ export function UserLayout() {
       <footer className="gp-user-layout__footer">
         <Brand size="sm" showSlogan={false} />
         <p className="gp-mini">礼有方 · AI 礼物经营助手 · 送礼有方，推荐有数。</p>
-        <p className="gp-mini">© 2026 GiftPilot · MVP v0.6</p>
+        <p className="gp-mini">
+          <Link to="/privacy/settings">隐私设置</Link>
+          {' · '}
+          <a href="/legal/privacy.html" target="_blank" rel="noreferrer">隐私政策</a>
+          {' · '}
+          <a href="/legal/terms.html" target="_blank" rel="noreferrer">用户协议</a>
+          {' · '}
+          <a href="/legal/cookies.html" target="_blank" rel="noreferrer">Cookie 政策</a>
+          {' · '}
+          © 2026 GiftPilot · MVP v0.6
+        </p>
       </footer>
+      <ConsentBanner />
     </div>
   );
 }

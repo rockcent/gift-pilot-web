@@ -14,6 +14,7 @@ import { OrdersPage } from './pages/user/OrdersPage';
 import { ReviewPage } from './pages/user/ReviewPage';
 import { NextPlanPage } from './pages/user/NextPlanPage';
 import { MemoryPage } from './pages/user/MemoryPage';
+import { PrivacySettingsPage } from './pages/legal/PrivacySettingsPage';
 
 // 管理后台页面
 import { LoginPage } from './pages/admin/LoginPage';
@@ -40,7 +41,8 @@ export const router = createBrowserRouter([
       { path: 'orders', element: <OrdersPage /> },
       { path: 'review', element: <ReviewPage /> },
       { path: 'next-plan', element: <NextPlanPage /> },
-      { path: 'memory', element: <MemoryPage /> }
+      { path: 'memory', element: <MemoryPage /> },
+      { path: 'privacy/settings', element: <PrivacySettingsPage /> }
     ]
   },
 
