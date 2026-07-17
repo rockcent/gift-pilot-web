@@ -1,4 +1,13 @@
-/* 管理后台操作日志（MVP mock 存 localStorage，阶段二切云数据库） */
+/* 管理后台操作日志 · v1.20.0 起走 @rockcent/platform/web-client storage
+ *
+ * MVP 阶段存 localStorage（namespace gift_pilot_web），阶段二切云数据库。
+ * 接入平台 storage 的好处：
+ *   - namespaced key 避免与其他 app 冲突
+ *   - QuotaExceededError 软警告（不抛）
+ *   - safeJsonParse 自动容错
+ */
+import { persistLocal, loadLocal } from '../services/storage';
+
 export interface AuditEntry {
   id: string;
   action: string;
@@ -8,7 +17,7 @@ export interface AuditEntry {
   meta?: Record<string, unknown>;
 }
 
-const STORAGE_KEY = 'gp-admin-audit';
+const STORAGE_KEY = 'admin-audit';
 const MAX_ENTRIES = 500;
 
 export function writeAudit(entry: Omit<AuditEntry, 'id' | 'ts' | 'operator'>): void {
@@ -22,20 +31,15 @@ export function writeAudit(entry: Omit<AuditEntry, 'id' | 'ts' | 'operator'>): v
   };
   list.push(newEntry);
   const trimmed = list.slice(-MAX_ENTRIES);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(trimmed));
+  persistLocal(STORAGE_KEY, trimmed);
 }
 
 export function readAudit(): AuditEntry[] {
   if (typeof window === 'undefined') return [];
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as AuditEntry[]) : [];
-  } catch {
-    return [];
-  }
+  return loadLocal<AuditEntry[]>(STORAGE_KEY, []);
 }
 
 export function clearAudit(): void {
   if (typeof window === 'undefined') return;
-  localStorage.removeItem(STORAGE_KEY);
+  persistLocal(STORAGE_KEY, []);
 }
