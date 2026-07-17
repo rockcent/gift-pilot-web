@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Brand } from '../../components/user/Brand';
+import { createSession, persistSession, reportAdminAction } from '../../services/admin-auth';
 
 export function LoginPage() {
   const [password, setPassword] = useState('');
@@ -13,7 +14,9 @@ export function LoginPage() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === expected) {
-      localStorage.setItem('gp-admin-session', JSON.stringify({ loginAt: Date.now() }));
+      const session = createSession();
+      persistSession(session);
+      void reportAdminAction('AUTH_LOGIN', 'admin-session', { role: 'admin', expiresAt: session.expiresAt });
       navigate(from);
     } else {
       setError('密码错误（MVP 阶段默认 admin123，详见 .env.example）');
@@ -40,7 +43,7 @@ export function LoginPage() {
           autoFocus
         />
         {error && <div style={{ color: 'var(--brand-coral)', fontSize: 13 }}>{error}</div>}
-        <button type="submit" className="gp-btn gp-btn--primary gp-btn--block">登录</button>
+        <button type="submit" className="gp-btn gp-btn--primary gp-btn--block">登录（session 30 分钟有效）</button>
         <a href="/" style={{ textAlign: 'center', fontSize: 13, color: 'var(--brand-muted)' }}>← 回到用户端</a>
       </form>
     </div>

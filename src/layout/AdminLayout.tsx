@@ -26,8 +26,10 @@ export function AdminLayout() {
   const navigate = useNavigate();
   const title = TITLE_MAP[location.pathname] || '管理后台';
 
-  const onLogout = () => {
-    localStorage.removeItem('gp-admin-session');
+  const onLogout = async () => {
+    const { clearSession, reportAdminAction } = await import('../services/admin-auth');
+    void reportAdminAction('AUTH_LOGOUT', 'admin-session');
+    clearSession();
     navigate('/admin/login');
   };
 
