@@ -2,9 +2,9 @@
   "name": "@rockcent/gift-pilot-web",
   "version": "0.6.0-web-mvp",
   "private": true,
-  "description": "\u793c\u6709\u65b9\uff08GiftPilot\uff09\u7f51\u9875\u7aef\uff1aC \u7aef\u7528\u6237\u754c\u9762 + \u5e73\u53f0\u7ba1\u7406\u540e\u53f0 \u00b7 MVP v0.6",
+  "description": "礼有方（GiftPilot）网页端：C 端用户界面 + 平台管理后台 · MVP v0.6",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.0.0"
   },
   "packageManager": "pnpm@9.0.0",
   "type": "module",
@@ -24,6 +24,7 @@
     "deploy:dry-run": "RSYNC_DRY_RUN=1 bash scripts/deploy-production.sh"
   },
   "dependencies": {
+    "@rockcent/platform": "git+https://github.com/rockcent/rockcent-platform.git#platform-v1.20.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
@@ -51,8 +52,5 @@
     "sass": "^1.71.0",
     "typescript": "^5.4.0",
     "vite": "^5.2.0"
-  },
-  "optionalDependencies": {
-    "@rockcent/platform": "git+https://github.com/rockcent/rockcent-platform.git#platform-v1.15.2"
   }
 }

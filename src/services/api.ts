@@ -1,15 +1,22 @@
-/* API 客户端 · 基于 @rockcent/platform/web-client 形态（阶段二接通真实后端时直接替换 import）
+/* API 客户端 · 真接入 @rockcent/platform/web-client (平台 v1.20.0+)
  *
- * MVP mock 阶段我们直接返回 mock 数据，但调用入口已经统一为 ApiClient 接口形态，
- * 便于阶段二把 impl 换成：
- *   import { createApiClient } from '@rockcent/platform/web-client';
- *   export const api = createApiClient({ baseUrl: process.env.API_BASE });
+ * MVP 阶段 ai/orders/memory 仍是 mock service（前端独立跑通 UI），
+ * 但 createApiClient + createJsonClient 已真实接入平台，未来接通真实后端时
+ * 仅替换 mock service 调用为 platform client.post/get 即可。
+ *
+ * 平台契约：
+ *   - createApiClient({ baseUrl, getAuthToken, throwOnError, timeoutMs }) → fetch wrapper
+ *   - createJsonClient(api) → { get, post<T> } 强类型 JSON 客户端
+ *   - normalizeFetchError(status, body) → { code, message, status } 中文错误映射
+ *   - getClientIdentityHeaders() → 注入 X-Rockcent-Device-* 头（设备识别）
+ *   - safeJsonParse(raw, fallback) → 容错 JSON.parse
  */
+import { createApiClient, createJsonClient, normalizeFetchError, getClientIdentityHeaders } from '@rockcent/platform/web-client';
 
 export interface ApiResult<T> {
   ok: boolean;
   data: T | null;
-  error: { code: string; message: string } | null;
+  error: { code: string; message: string; status?: number } | null;
 }
 
 export interface ApiClient {
@@ -28,6 +35,25 @@ export interface ApiClient {
     get: (userId: string) => Promise<ApiResult<any>>;
     put: (userId: string, memory: any) => Promise<ApiResult<any>>;
   };
+}
+
+/* 平台 API client：MVP 阶段 baseUrl 指向 /api 暂未启用（后端阶段三建），
+   仅作未来真实接入入口；当前 throwOnError=false 让 mock 短路时不会触发平台错误。 */
+const platformApi = createApiClient({
+  baseUrl: '/api',
+  throwOnError: false,
+  timeoutMs: 10000
+});
+export const jsonClient = createJsonClient(platformApi);
+
+/* 平台错误映射（直接暴露给 UI 用） */
+export function mapPlatformError(status: number, body?: unknown): { code: string; message: string } {
+  return normalizeFetchError(status, body);
+}
+
+/* 平台身份头（出站 fetch 调用前注入；mock 阶段仅在 audit 上报时用） */
+export function platformIdentityHeaders(): Record<string, string> {
+  return getClientIdentityHeaders();
 }
 
 import { aiMock } from './ai/mock';

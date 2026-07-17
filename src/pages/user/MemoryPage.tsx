@@ -46,7 +46,13 @@ export function MemoryPage() {
       </div>
 
       <div className="gp-recommend__cta">
-        <button className="gp-btn gp-btn--ghost" onClick={onClear}>清空记忆</button>
+        <button
+            className="gp-btn gp-btn--ghost"
+            onClick={onClear}
+            aria-label="一键清除 AI 记忆（宪法 §4.6）"
+          >
+            🗑️ 一键清除记忆
+          </button>
         <button className="gp-btn gp-btn--primary gp-btn--block" onClick={() => alert('MVP mock：阶段二将开放多轮偏好编辑')}>继续我的偏好</button>
       </div>
     </div>
