@@ -1,5 +1,6 @@
 import { AIMemoryRow } from '../../components/user/AIMemoryRow';
 import { useMemoryStore } from '../../stores/memory-store';
+import { exportAllData } from '../../services/consent';
 
 export function MemoryPage() {
   const memory = useMemoryStore((s) => s.memory);
@@ -53,6 +54,23 @@ export function MemoryPage() {
           >
             🗑️ 一键清除记忆
           </button>
+        <button
+          className="gp-btn gp-btn--secondary"
+          onClick={() => {
+            const data = exportAllData();
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `giftpilot-memory-${data.exportedAt}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+          }}
+          aria-label="导出我的全部数据（GDPR Art. 15 数据访问权）"
+          data-testid="export-memory-btn"
+        >
+          📦 导出我的数据
+        </button>
         <button className="gp-btn gp-btn--primary gp-btn--block" onClick={() => alert('MVP mock：阶段二将开放多轮偏好编辑')}>继续我的偏好</button>
       </div>
     </div>
