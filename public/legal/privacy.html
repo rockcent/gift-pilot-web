@@ -3,81 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>礼有方 · 隐私政策</title>
+  <title>礼有方 · 隐私政策 · CTO 起草版 v0.1.0</title>
   <style>
-    body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #1f2937; line-height: 1.7; }
-    h1 { color: #23B26D; border-bottom: 2px solid #23B26D; padding-bottom: 8px; }
-    h2 { margin-top: 32px; color: #111827; }
-    .meta { background: #f9fafb; border-left: 4px solid #23B26D; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #4b5563; }
-    .placeholder { background: #fef3c7; border: 1px dashed #f59e0b; padding: 12px; margin: 8px 0; font-size: 13px; color: #92400e; }
-    .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280; }
+    body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 820px; margin: 40px auto; padding: 0 20px; color: #1f2937; line-height: 1.75; }
+    h1 { color: #111827; border-bottom: 3px solid #23B26D; padding-bottom: 10px; }
+    h2 { margin-top: 32px; color: #111827; font-size: 18px; }
+    h3 { margin-top: 20px; color: #374151; font-size: 15px; }
+    .draft-banner { background: #fef2f2; border: 2px solid #dc2626; border-radius: 6px; padding: 16px 20px; margin: 0 0 24px; color: #7f1d1d; }
+    .draft-banner h3 { margin: 0 0 8px; color: #991b1b; font-size: 15px; }
+    .meta { background: #f9fafb; border-left: 4px solid #23B26D; padding: 12px 16px; margin: 16px 0; font-size: 13px; color: #4b5563; }
+    .meta p { margin: 4px 0; }
+    .placeholder { background: #fef3c7; border: 1px dashed #f59e0b; padding: 8px 12px; margin: 8px 0; font-size: 13px; color: #92400e; display: inline-block; border-radius: 3px; font-family: monospace; }
+    .pm-fill { background: #fff7ed; border-left: 3px solid #ea580c; padding: 8px 12px; margin: 8px 0; font-size: 13px; color: #9a3412; border-radius: 0 3px 3px 0; }
+    .pm-fill::before { content: "🟠 [待 PM 填] "; font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+    th, td { border: 1px solid #e5e7eb; padding: 6px 10px; text-align: left; }
+    th { background: #f9fafb; }
+    .sig-block { background: #f9fafb; border: 2px solid #d1d5db; border-radius: 6px; padding: 24px; margin: 40px 0 24px; }
+    .sig-block h3 { margin-top: 0; color: #991b1b; }
+    .sig-line { border-bottom: 1px solid #9ca3af; display: inline-block; min-width: 220px; height: 24px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
     a { color: #23B26D; }
   </style>
 </head>
 <body>
-  <h1>礼有方 · 隐私政策</h1>
 
-  <div class="meta">
-    <strong>版本</strong>：v0.0.0-draft (待律师审定)<br>
-    <strong>生效日</strong>：待定<br>
-    <strong>最后更新</strong>：2026-07-17<br>
-    <strong>管辖法</strong>：GDPR (EU 2016/679) + PIPL (中华人民共和国个人信息保护法)
-  </div>
+<div class="draft-note" style="background:#f3f4f6;padding:12px 16px;margin:0 0 24px;border-left:4px solid #9ca3af;color:#374151;font-size:13px;">
+  <p><strong>⚠️ 本页面为 CTO 起草版 v0.1.0（非律师签字版），仅供内部审阅。</strong>文中引用 GDPR、PIPL 公开条文并结合礼有方实际实现，<strong>不具备法律效力。</strong>请在正式上线前完成外部律所审定、签字与盖章。</p>
+</div>
 
-  <div class="placeholder">
-    ⚠️ CTO 占位骨架：以下章节为待律师填入的占位文本。律师签字版需替换全部 placeholder 块。
-  </div>
+<h1>礼有方 · 隐私政策</h1>
 
-  <h2>1. 数据控制者</h2>
-  <div class="placeholder">[律师填：数据控制者名称 / 注册地址 / 联系方式 / DPO 联系方式]</div>
+<div class="meta">
+  <p><strong>版本</strong>：v0.1.0-cto-draft（待外部律所审定）</p>
+  <p><strong>生效日</strong>：待律所审定签字后填入</p>
+  <p><strong>最后更新</strong>：2026-07-18</p>
+  <p><strong>管辖法</strong>：欧盟《通用数据保护条例》(GDPR, EU 2016/679) · 中华人民共和国《个人信息保护法》(PIPL) · 实施条例及国家标准</p>
+  <p><strong>法律基础引用</strong>：GDPR Art. 6（处理基础）/ Art. 7（同意条件）/ Art. 13（信息提供）/ Art. 15-22（数据主体权利）/ Art. 30（处理活动记录）/ Art. 32（安全措施）/ Art. 33-34（数据泄露通知） · PIPL §13（合法性基础）/ §17（信息告知）/ §23（撤回同意）/ §44-50（数据主体权利）/ §51（敏感信息）/ §55-56（跨境传输）/ §57（安全义务）</p>
+</div>
 
-  <h2>2. 我们收集哪些数据</h2>
-  <ul>
-    <li><strong>账户数据</strong>：user_id（客户端生成，非真实身份）</li>
-    <li><strong>画像数据</strong>：关系（伴侣/同事等）、预算区间、偏好风格、商品类目、发布时间、经营目标</li>
-    <li><strong>设备指纹</strong>：deviceId（GDPR Recital 30 fingerprinting，需要明示同意）</li>
-    <li><strong>行为数据</strong>：导航、点击、发布（待阶段二接入）</li>
-  </ul>
+<h2>1. 数据控制者</h2>
+<div class="pm-fill">公司全称 / 注册地址 / 法定代表人 / 联系电话 / 邮箱 / 数据保护官 (DPO) 联系方式</div>
+<p>礼有方（GiftPilot）的运营主体（"我们"）作为个人信息处理者，决定您个人信息的处理目的与方式。如对本政策或您个人信息的处理有任何疑问，请通过上述联系方式与我们联系。</p>
 
-  <h2>3. 处理目的与法律基础（GDPR Art. 6 / PIPL §13）</h2>
-  <div class="placeholder">[律师填：明示同意 / 合同必要 / 合法利益 的逐项对应表]</div>
+<h2>2. 我们收集哪些个人信息</h2>
+<p>根据您使用礼有方功能的不同，我们可能收集以下类别：</p>
 
-  <h2>4. 留存期</h2>
-  <ul>
-    <li>客户端 localStorage：永久直到用户主动清除</li>
-    <li>服务端（阶段二）：待定</li>
-  </ul>
+<h3>2.1 您主动提供的信息</h3>
+<table>
+  <tr><th>类别</th><th>字段</th><th>采集方式</th></tr>
+  <tr><td>关系画像</td><td><code>primary_relations</code>（如：伴侣、同事、闺蜜、长辈）</td><td>用户手动编辑</td></tr>
+  <tr><td>消费能力</td><td><code>budget_range_fen</code>（预算区间，整数分）</td><td>用户手动编辑</td></tr>
+  <tr><td>偏好风格</td><td><code>preferred_styles</code>（真实 / 真诚 / 鲜甜 / 自然分享 / 实用推荐 / 情绪价值 / 个性化 / 专业 / 轻松幽默）</td><td>用户点击"📌 记住"自动学习</td></tr>
+  <tr><td>擅长类目</td><td><code>favorite_categories</code>（音乐 / 茶香 / 鲜花 / 烘焙 等）</td><td>用户手动编辑</td></tr>
+  <tr><td>行为习惯</td><td><code>best_publish_window</code>（最佳发布时间窗口）</td><td>用户手动编辑</td></tr>
+  <tr><td>经营目标</td><td><code>goal_text</code>（如：月佣金 ¥2,000）</td><td>用户手动编辑</td></tr>
+</table>
 
-  <h2>5. 第三方接收方</h2>
-  <div class="placeholder">[律师填：火山方舟 / 微信支付 / CPS 联盟 等的具体名称 + 用途 + 数据类型 + 跨境路径]</div>
+<h3>2.2 自动采集的信息</h3>
+<table>
+  <tr><th>类别</th><th>字段</th><th>采集方式</th></tr>
+  <tr><td>设备指纹</td><td><code>deviceId</code>（<a href="https://gdpr-info.eu/recitals/no-30/" target="_blank">GDPR Recital 30 fingerprinting</a>）</td><td>浏览器 / Web Storage 自动生成</td></tr>
+  <tr><td>设备标签</td><td><code>deviceLabel</code>（浏览器 / OS 信息）</td><td>User-Agent 解析</td></tr>
+</table>
+<p><strong>特别说明</strong>：我们使用的设备指纹属于 GDPR Recital 30 所指的"在线标识符"，需您的明示同意（GDPR Art. 7 + PIPL §13）。您可在首次访问时的同意横幅中拒绝，拒绝后仅影响个性化推荐，不影响核心服务。</p>
 
-  <h2>6. 您的权利（GDPR Art. 15-22 / PIPL §44-50）</h2>
-  <ul>
-    <li><strong>访问权</strong>：导出我的数据 → <a href="/memory">/memory</a> 页 "📦 导出我的数据" 按钮</li>
-    <li><strong>更正权</strong>：/memory 页每行可点击编辑</li>
-    <li><strong>删除权</strong>：/memory 页 "🗑️ 一键清除记忆" 按钮（PRD §5.3 + 宪法 §4.6）</li>
-    <li><strong>撤回同意</strong>：<a href="/privacy/settings">/privacy/settings</a></li>
-    <li><strong>数据可携</strong>：导出 JSON 即 GDPR Art. 20 机器可读格式</li>
-  </ul>
+<h2>3. 处理目的与法律基础</h2>
+<table>
+  <tr><th>处理目的</th><th>涉及字段</th><th>GDPR Art. 6 法律基础</th><th>PIPL §13 法律基础</th></tr>
+  <tr><td>个性化礼物推荐</td><td>关系画像、预算、偏好、类目</td><td>(b) 合同必要 — 服务合同的核心履约</td><td>第(二)项 订立或履行合同必需</td></tr>
+  <tr><td>AI 风格学习</td><td>preferred_styles（点击"📌 记住"）</td><td>(a) 同意 — 主动学习行为</td><td>第(一)项 取得个人同意</td></tr>
+  <tr><td>设备识别与会话保持</td><td>deviceId</td><td>(a) 同意（明示）+ (f) 合法利益（安全风控）</td><td>第(一)项 + 第(六)项 合法利益</td></tr>
+  <tr><td>服务安全审计</td><td>deviceId、操作行为</td><td>(f) 合法利益 — 防止滥用与安全事故</td><td>第(六)项 合法利益</td></tr>
+  <tr><td>合规要求（如有）</td><td>审计日志</td><td>(c) 法律义务</td><td>第(三)项 法定职责</td></tr>
+</table>
 
-  <h2>7. 跨境传输</h2>
-  <div class="placeholder">[律师填：阿里云节点位置 + 传输加密方式 + SCC / 安全评估结论]</div>
+<h2>4. 您的同意（GDPR Art. 7 + PIPL §23）</h2>
+<p>礼有方采用分项同意机制，您可独立决定：</p>
+<ul>
+  <li><strong>必要项</strong>：核心服务（AI 记忆 + 同意记录），不可关闭（合同必要）</li>
+  <li><strong>分析项</strong>：匿名行为分析（<strong>当前未启用</strong>，未来启用时需重新征求同意）</li>
+  <li><strong>营销项</strong>：个性化营销推荐（<strong>当前未启用</strong>）</li>
+</ul>
+<p>您可在 <a href="/privacy/settings">/privacy/settings</a> 页面随时撤回您的同意。撤回不影响撤回前基于您同意已进行的处理。</p>
 
-  <h2>8. 安全措施</h2>
-  <ul>
-    <li>HTTPS 强制 + HSTS</li>
-    <li>localStorage namespace 隔离（gift_pilot_web）</li>
-    <li>Admin session 30 分钟自动过期</li>
-    <li>Audit log 记录所有管理操作</li>
-  </ul>
+<h2>5. 数据保留期</h2>
+<table>
+  <tr><th>数据类型</th><th>存储位置</th><th>保留期</th><th>删除触发</th></tr>
+  <tr><td>AI 记忆（关系/预算/偏好/类目/目标）</td><td>localStorage（namespace <code>gift_pilot_web</code> / <code>gift_pilot:</code>）</td><td>永久（用户本地存储）</td><td>用户点击"🗑️ 一键清除记忆"立即清空</td></tr>
+  <tr><td>风格档案</td><td>同上</td><td>同上</td><td>"重置风格档案"按钮或一键清除</td></tr>
+  <tr><td>同意记录</td><td>同上（<code>consent:v1</code>）</td><td>永久</td><td>用户撤回同意时清除</td></tr>
+  <tr><td>管理后台审计日志</td><td>同上（<code>admin-audit</code>）</td><td>最近 500 条</td><td>超过 500 条自动滚动覆盖</td></tr>
+  <tr><td>服务端业务数据（阶段二起）</td><td>阿里云 ECS（待定区域）</td><td>待 PM 拍板</td><td>待 PM 拍板</td></tr>
+</table>
+<p><strong>原则</strong>：我们在达成处理目的所需的最短时间内保留您的个人信息；超过保留期后，将依法删除或匿名化。</p>
 
-  <h2>9. 联系方式与投诉</h2>
-  <div class="placeholder">[律师填：DPO 邮箱 / 监管机构投诉渠道]</div>
+<h2>6. 您的权利（GDPR Art. 15-22 + PIPL §44-50）</h2>
+<table>
+  <tr><th>您的权利</th><th>法律依据</th><th>礼有方实现方式</th></tr>
+  <tr><td><strong>知情权</strong></td><td>GDPR Art. 13-14 / PIPL §17</td><td>本隐私政策 + 同意横幅</td></tr>
+  <tr><td><strong>访问权</strong></td><td>GDPR Art. 15 / PIPL §45</td><td><a href="/memory">/memory</a> 页查看 + <a href="/privacy/settings">/privacy/settings</a>"📦 导出我的数据"按钮（JSON 格式，GDPR Art. 20 机器可读）</td></tr>
+  <tr><td><strong>更正权</strong></td><td>GDPR Art. 16 / PIPL §46</td><td><a href="/memory">/memory</a> 页每行可点击编辑</td></tr>
+  <tr><td><strong>删除权</strong>（被遗忘权）</td><td>GDPR Art. 17 / PIPL §47</td><td><a href="/memory">/memory</a> 页"🗑️ 一键清除记忆"按钮 + <a href="/privacy/settings">/privacy/settings</a>"撤回同意"</td></tr>
+  <tr><td><strong>限制处理权</strong></td><td>GDPR Art. 18 / PIPL §48</td><td>撤回同意即视为限制处理</td></tr>
+  <tr><td><strong>数据可携权</strong></td><td>GDPR Art. 20 / PIPL §46</td><td>JSON 导出（<code>exportVersion: 1.0.0</code>）</td></tr>
+  <tr><td><strong>反对权</strong></td><td>GDPR Art. 21</td><td>通过撤回同意实现</td></tr>
+  <tr><td><strong>不受自动化决策约束权</strong></td><td>GDPR Art. 22 / PIPL §24</td><td>当前 MVP 阶段未涉及自动化决策；阶段二接入 LLM 后将提供人工 override</td></tr>
+  <tr><td><strong>撤回同意权</strong></td><td>GDPR Art. 7(3) / PIPL §23</td><td><a href="/privacy/settings">/privacy/settings</a>"撤回全部同意"按钮，与撤回前同意同样容易</td></tr>
+</table>
+<p>如需行使上述权利，请通过第 1 节联系方式与我们联系。我们将在 <strong>30 日内</strong>（GDPR Art. 12(3)）响应您的请求。</p>
 
-  <div class="footer">
-    <p>© 2026 礼有方 / GiftPilot. All rights reserved.</p>
-    <p>本文档为 CTO 占位骨架，最终版本以律师签字版为准。<br>
-    技术实施参考 <code>/Volumes/Rock2/codex/docs/prd/prd-gift-pilot.md</code> §5.3 + §11 R-02。</p>
-  </div>
+<h2>7. 第三方接收方</h2>
+<table>
+  <tr><th>接收方</th><th>用途</th><th>数据类型</th><th>启用时间</th></tr>
+  <tr><td>阿里云 ECS（<span class="pm-fill">具体 region</span>）</td><td>静态网站托管（当前 MVP）</td><td>无业务数据（仅静态资源）</td><td>已启用</td></tr>
+  <tr><td>火山方舟 / 豆包大模型 API（<span class="pm-fill">待 PM 凭证</span>）</td><td>阶段二 AI 推荐 / 多模态生成</td><td>用户画像 + 输入文本</td><td>待 C-01 凭证就位</td></tr>
+  <tr><td>微信支付（<span class="pm-fill">待 PM 凭证</span>）</td><td>阶段三订单支付</td><td>订单金额、用户标识</td><td>待 C-02 凭证就位</td></tr>
+  <tr><td>CPS 联盟：淘宝 / 京东 / 拼多多（<span class="pm-fill">待 PM 凭证</span>）</td><td>阶段三商品推广返佣</td><td>商品 ID、订单 ID</td><td>待 C-03 凭证就位</td></tr>
+  <tr><td>微信云开发（<span class="pm-fill">待 PM 凭证</span>）</td><td>阶段三服务端能力</td><td>用户身份（openid / unionid）</td><td>待 C-04 凭证就位</td></tr>
+</table>
+<p>我们仅在为您提供服务所必需的范围内向第三方共享您的个人信息。任何共享前我们会单独征求您的同意（PIPL §23）。</p>
+
+<h2>8. 跨境传输</h2>
+<p>当前 MVP 阶段：</p>
+<ul>
+  <li>所有数据存储与计算均在 <span class="pm-fill">[待 PM 填：阿里云 region，例如 华东1（杭州）]</span> 节点完成</li>
+  <li>数据传输全程采用 HTTPS（TLS 1.2+）加密</li>
+  <li><strong>不涉及跨境传输</strong>，不触发 PIPL §55-56 安全评估 / 标准合同 / 认证要求</li>
+</ul>
+<p>阶段二起接入火山方舟等第三方服务时：</p>
+<ul>
+  <li>如使用境内 endpoint：不触发跨境传输</li>
+  <li>如使用境外 endpoint：将依法进行 PIPL §55 安全评估 / 网信办备案 / 与接收方签订标准合同（SCC），并向您单独告知</li>
+</ul>
+<div class="pm-fill">[待 PM 决策] 阶段二起火山方舟 endpoint 选型（境内 / 境外）</div>
+
+<h2>9. 安全措施（GDPR Art. 32 + PIPL §51）</h2>
+<p>我们采取以下技术与组织措施保护您的个人信息：</p>
+<ul>
+  <li><strong>传输加密</strong>：全站 HTTPS 强制（HTTP→HTTPS 301）+ HSTS（<span class="pm-fill">待配置</span>）+ TLS 1.2+</li>
+  <li><strong>存储隔离</strong>：localStorage namespace 隔离（<code>gift_pilot_web</code> / <code>gift_pilot:</code>），不与其他应用冲突</li>
+  <li><strong>访问控制</strong>：管理后台单一密码 + 30 分钟 session 自动过期 + audit log 全留痕</li>
+  <li><strong>数据完整性</strong>：平台 storage 走 <code>safeJsonParse</code> 自动容错</li>
+  <li><strong>Quota 管理</strong>：超出配额软警告，不抛异常</li>
+  <li><strong>备份链</strong>：生产部署前自动备份（最近一次：<span class="pm-fill">2026-07-17 23:31 / 23:32</span>）</li>
+</ul>
+
+<h2>10. 数据泄露通知（GDPR Art. 33-34）</h2>
+<p>如发生个人信息泄露事件，我们承诺：</p>
+<ul>
+  <li>在 <strong>72 小时内</strong>（GDPR Art. 33）向监管机构报告</li>
+  <li>如泄露对您权益有较大影响的，将在 <strong>72 小时内</strong>（PIPL §57）通知您</li>
+  <li>通知内容包括：泄露类型、可能影响、已采取的措施、您可采取的自救建议</li>
+</ul>
+
+<h2>11. 未成年人保护</h2>
+<p>礼有方面向具有完全民事行为能力的自然人。<strong>我们不会故意收集 14 周岁以下儿童的个人信息</strong>。如您是未成年人，请在监护人陪同下使用本服务。如发现我们误收集了未成年人信息，将主动删除。</p>
+
+<h2>12. 政策变更</h2>
+<p>我们可能根据业务变化、法律法规更新等情况修订本政策。重大变更将通过站内通知、同意横幅重新征求等方式告知您。继续使用我们的服务即表示您接受变更后的政策。</p>
+<p>本政策的版本号会随更新递增（<code>v1.0.0</code> → <code>v1.1.0</code> → ...），与同意记录中的 <code>version</code> 字段绑定，确保用户每次同意都对应特定版本的政策文本。</p>
+
+<h2>13. 投诉与监管</h2>
+<p>如您对我们的个人信息处理活动有任何不满，请先通过第 1 节联系方式与我们沟通，我们将在 30 日内响应。</p>
+<p>如沟通后您仍不满意，您有权向以下监管机构投诉：</p>
+<ul>
+  <li><strong>中国大陆</strong>：<span class="pm-fill">[待 PM 填：所在地网信办 / 工业和信息化部 / 市场监督管理总局 等]</span></li>
+  <li><strong>欧盟</strong>：您居住国的数据保护监管机构（GDPR Art. 77）</li>
+</ul>
+
+<h2>14. 联系我们</h2>
+<div class="pm-fill">[待 PM 填：公司全称 / 注册地址 / 联系电话 / 邮箱 / DPO 邮箱]</div>
+
+<div class="sig-block">
+  <h3>📋 律师审定签字栏（待外部律所签字盖章）</h3>
+  <p>本 CTO 起草版 v0.1.0 需由具备执业资格的外部律所审定后方可生效。审定通过后，律所需在本栏签字并加盖律所公章，同时确认本版本号已升级为正式版（建议 v1.0.0）。</p>
+  <p><strong>审定律所</strong>：<span class="sig-line"></span></p>
+  <p><strong>执业律师</strong>：<span class="sig-line"></span>　<strong>执业证号</strong>：<span class="sig-line"></span></p>
+  <p><strong>审定日期</strong>：<span class="sig-line"></span></p>
+  <p><strong>律所公章</strong>：<span class="sig-line" style="min-width: 320px;"></span></p>
+  <p style="font-size: 12px; color: #6b7280; margin-top: 16px;">⚠️ 未经律所签字盖章的本版本不构成法律意见，仅供内部参考与律师审定使用。</p>
+</div>
+
+<div class="footer">
+  <p>© 2026 礼有方 / GiftPilot. All rights reserved.</p>
+  <p>相关文档：<a href="/legal/terms.html">用户协议</a> · <a href="/legal/cookies.html">Cookie 政策</a> · <a href="/privacy/settings">隐私设置</a></p>
+  <p>技术实施参考：<code>/Volumes/Rock2/codex/docs/prd/prd-gift-pilot.md</code> §5.3 + §11 R-02 · 宪法 §4.6</p>
+</div>
+
 </body>
 </html>

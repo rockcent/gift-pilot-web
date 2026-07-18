@@ -3,55 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>礼有方 · 用户协议</title>
+  <title>礼有方 · 用户协议 · CTO 起草版 v0.1.0</title>
   <style>
-    body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #1f2937; line-height: 1.7; }
-    h1 { color: #23B26D; border-bottom: 2px solid #23B26D; padding-bottom: 8px; }
-    h2 { margin-top: 32px; color: #111827; }
-    .meta { background: #f9fafb; border-left: 4px solid #23B26D; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #4b5563; }
-    .placeholder { background: #fef3c7; border: 1px dashed #f59e0b; padding: 12px; margin: 8px 0; font-size: 13px; color: #92400e; }
-    .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280; }
+    body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 820px; margin: 40px auto; padding: 0 20px; color: #1f2937; line-height: 1.75; }
+    h1 { color: #111827; border-bottom: 3px solid #23B26D; padding-bottom: 10px; }
+    h2 { margin-top: 32px; color: #111827; font-size: 18px; }
+    .draft-banner { background: #fef2f2; border: 2px solid #dc2626; border-radius: 6px; padding: 16px 20px; margin: 0 0 24px; color: #7f1d1d; }
+    .draft-banner h3 { margin: 0 0 8px; color: #991b1b; font-size: 15px; }
+    .meta { background: #f9fafb; border-left: 4px solid #23B26D; padding: 12px 16px; margin: 16px 0; font-size: 13px; color: #4b5563; }
+    .meta p { margin: 4px 0; }
+    .pm-fill { background: #fff7ed; border-left: 3px solid #ea580c; padding: 8px 12px; margin: 8px 0; font-size: 13px; color: #9a3412; border-radius: 0 3px 3px 0; }
+    .pm-fill::before { content: "🟠 [待 PM 填] "; font-weight: 600; }
+    .sig-block { background: #f9fafb; border: 2px solid #d1d5db; border-radius: 6px; padding: 24px; margin: 40px 0 24px; }
+    .sig-block h3 { margin-top: 0; color: #991b1b; }
+    .sig-line { border-bottom: 1px solid #9ca3af; display: inline-block; min-width: 220px; height: 24px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
     a { color: #23B26D; }
   </style>
 </head>
 <body>
-  <h1>礼有方 · 用户协议</h1>
 
-  <div class="meta">
-    <strong>版本</strong>：v0.0.0-draft (待律师审定)<br>
-    <strong>生效日</strong>：待定<br>
-    <strong>最后更新</strong>：2026-07-17
-  </div>
+<div class="draft-note" style="background:#f3f4f6;padding:12px 16px;margin:0 0 24px;border-left:4px solid #9ca3af;color:#374151;font-size:13px;">
+  <p><strong>⚠️ 本页面为 CTO 起草版 v0.1.0（非律师签字版），仅供内部审阅。</strong>文中引用民法典、电子商务法、消费者权益保护法、PIPL、网络安全法、广告法等公开条文并结合礼有方实际实现，<strong>不具备法律效力。</strong>请在正式上线前完成外部律所审定、签字与盖章。</p>
+</div>
 
-  <div class="placeholder">⚠️ CTO 占位骨架：以下章节为待律师填入的占位文本。</div>
+<h1>礼有方 · 用户协议</h1>
 
-  <h2>1. 服务说明</h2>
-  <p>礼有方（GiftPilot）是一款 AI 礼物经营助手，帮助用户记录关系画像、推荐礼物、辅助内容创作与发布。</p>
+<div class="meta">
+  <p><strong>版本</strong>：v0.1.0-cto-draft（待外部律所审定）</p>
+  <p><strong>生效日</strong>：待律所审定签字后填入</p>
+  <p><strong>最后更新</strong>：2026-07-18</p>
+  <p><strong>管辖法</strong>：中华人民共和国民法典 / 电子商务法 / 消费者权益保护法 / 个人信息保护法 / 网络安全法 / 广告法</p>
+</div>
 
-  <h2>2. 账户与使用</h2>
-  <div class="placeholder">[律师填：账户注册 / 实名 / 注销条款]</div>
+<h2>1. 服务说明</h2>
+<p>礼有方（GiftPilot，"我们"）是由 <span class="pm-fill">[待 PM 填：公司全称]</span> 运营的一款 AI 礼物经营助手。本服务通过 Web 端（<a href="/">gift.rockcent.com</a>）和小程序 H5 端（<a href="/h5/">/h5/</a>）向您提供：</p>
+<ul>
+  <li><strong>AI 关系记忆</strong>：记录您的关系画像、预算、偏好，辅助个性化礼物推荐</li>
+  <li><strong>礼物推荐</strong>：基于您的画像与节日场景，生成礼物建议</li>
+  <li><strong>内容创作辅助</strong>：辅助生成礼物文案、发布建议</li>
+  <li><strong>运营复盘</strong>：基于您的发布与推荐点击习惯，给出运营建议</li>
+</ul>
+<p>当前版本为 MVP（最小可行产品）阶段，部分功能为模拟实现，未来将逐步接入真实服务（详见 <a href="/legal/privacy.html">隐私政策</a> 第 7 节）。</p>
 
-  <h2>3. 用户行为规范</h2>
-  <div class="placeholder">[律师填：合法使用 / 禁止行为 / 违规处理]</div>
+<h2>2. 账户与使用</h2>
+<p>当前 MVP 阶段，礼有方采用<strong>匿名使用模式</strong>，无需注册账户。我们通过您浏览器本地存储的设备指纹（<code>deviceId</code>）识别您的会话，不收集姓名、手机号、身份证号等实名信息。</p>
+<p>阶段二起接入账户体系后：</p>
+<ul>
+  <li>您可通过微信小程序登录（openid / unionid），无需单独注册</li>
+  <li>账户注销后，您的服务端数据将依法删除（<a href="/legal/privacy.html">隐私政策</a> 第 6 节）</li>
+  <li><span class="pm-fill">[待 PM 填：未成年人保护条款、实名认证规则（如涉及）]</span></li>
+</ul>
 
-  <h2>4. 知识产权</h2>
-  <div class="placeholder">[律师填：平台内容 / 用户内容 / 授权范围]</div>
+<h2>3. 用户行为规范</h2>
+<p>使用礼有方服务时，您承诺不从事以下行为：</p>
+<ul>
+  <li>违反中华人民共和国法律法规的行为</li>
+  <li>危害网络安全、破坏系统正常运行的行为</li>
+  <li>侵犯他人知识产权、商业秘密、隐私权的行为</li>
+  <li>传播淫秽、暴力、虚假、欺诈、骚扰信息</li>
+  <li>利用本服务从事任何违法违规的商业活动</li>
+  <li>恶意注册、刷量、爬取、攻击系统</li>
+  <li>违反公序良俗、社会公德的行为</li>
+</ul>
+<p>如您违反上述规范，我们有权采取警告、限制功能、终止服务等措施，并保留追究法律责任的权利。</p>
 
-  <h2>5. 付费与退款（如适用）</h2>
-  <div class="placeholder">[律师填：服务定价 / 退款政策 / 微信支付集成]</div>
+<h2>4. 知识产权</h2>
+<p>礼有方平台的所有内容（包括但不限于软件、UI 设计、文案、品牌标识 Logo、源代码、文档）均由 <span class="pm-fill">[待 PM 填：权利主体]</span> 享有著作权、商标权及其他知识产权。</p>
+<p><strong>您发布的内容</strong>：您在礼有方生成的发布文案、笔记等，归您本人所有。但您授予我们一项<strong>非独家、免费、全球范围内</strong>的使用许可，用于为您提供服务、改进 AI 模型、运营复盘等目的。阶段二起接入真实发布平台（小红书 / 微信视频号 / 抖音）后，该等许可将在您实际发布范围内适用。</p>
+<p><strong>反馈</strong>：如您向我们提供产品反馈、建议或意见，我们有权无偿使用该等反馈用于产品改进。</p>
 
-  <h2>6. 责任限制</h2>
-  <div class="placeholder">[律师填：免责条款 / 责任上限]</div>
+<h2>5. 付费与退款</h2>
+<p>当前 MVP 阶段：</p>
+<ul>
+  <li><strong>免费</strong>使用全部 MVP 功能</li>
+  <li>不涉及支付、不收集支付信息</li>
+</ul>
+<p>阶段二起接入支付后：</p>
+<ul>
+  <li>将通过 <span class="pm-fill">[待 PM 填：支付渠道（如微信支付）]</span> 收款</li>
+  <li>价格将在购买页面明示，以页面公示价为准</li>
+  <li>退款政策遵循《消费者权益保护法》第七条 / 《网络交易管理办法》相关规定：</li>
+  <ul>
+    <li>4 小时（含）内未使用：可全额退款</li>
+    <li>4 小时 - 7 天：按已使用比例扣除</li>
+    <li>7 天以上：原则上不退，特殊情况协商处理</li>
+    <li>法律法规另有规定的，从其规定</li>
+  </ul>
+  <li><span class="pm-fill">[待 PM 填：发票制度]</span></li>
+</ul>
 
-  <h2>7. 协议变更</h2>
-  <div class="placeholder">[律师填：变更通知方式 / 生效条件]</div>
+<h2>6. 责任限制</h2>
+<p>在法律允许的最大范围内：</p>
+<ul>
+  <li>本服务按"现状"提供，我们不对服务的及时性、安全性、准确性、可用性做任何明示或暗示的担保</li>
+  <li>AI 推荐内容仅供参考，不构成购买决策的唯一依据。如因礼物推荐不当造成的损失，我们仅在故意或重大过失情况下承担法律责任</li>
+  <li>因不可抗力（自然灾害、战争、网络中断、政府行为等）导致的服务中断，我们不承担责任</li>
+  <li>在任何情况下，我们对您承担的全部责任不超过您最近 12 个月内向我们支付的服务费用（如未付费，则不超过人民币 100 元）</li>
+  <li>本协议中任何责任限制条款如被认定无效，不影响其他条款的效力</li>
+</ul>
 
-  <h2>8. 争议解决</h2>
-  <div class="placeholder">[律师填：管辖法院 / 适用法律 / 仲裁条款]</div>
+<h2>7. 服务变更与终止</h2>
+<p>我们保留随时修改或终止本服务（或其任何部分）的权利。如发生重大变更：</p>
+<ul>
+  <li>将通过站内通知、同意横幅重新征求等方式提前告知您</li>
+  <li>如您不同意变更，可停止使用并要求撤回已收集的个人信息</li>
+  <li>如您严重违反本协议，我们有权立即终止服务</li>
+</ul>
 
-  <div class="footer">
-    <p>© 2026 礼有方 / GiftPilot. All rights reserved.</p>
-    <p>相关：<a href="/legal/privacy.html">隐私政策</a> · <a href="/legal/cookies.html">Cookie 政策</a> · <a href="/privacy/settings">隐私设置</a></p>
-  </div>
+<h2>8. 协议变更</h2>
+<p>我们可能根据业务变化、法律法规更新等情况修订本协议。修订后的协议将在生效前 7 个自然日通过站内通知告知您。如您不同意修订内容，有权停止使用服务；继续使用即视为接受修订。</p>
+
+<h2>9. 争议解决</h2>
+<p>本协议的订立、执行和解释均适用中华人民共和国法律。如发生争议：</p>
+<ol>
+  <li>首先通过友好协商解决</li>
+  <li>协商不成的，任何一方均有权将争议提交 <span class="pm-fill">[待 PM 填：公司所在地有管辖权的人民法院]</span> 管辖</li>
+  <li>如约定仲裁，则提交 <span class="pm-fill">[待 PM 填：仲裁机构（如：北京仲裁委员会 / 中国国际经济贸易仲裁委员会）]</span> 按照其届时有效的仲裁规则进行仲裁</li>
+</ol>
+
+<h2>10. 其他</h2>
+<ul>
+  <li>本协议任一条款被认定为无效，不影响其他条款的效力</li>
+  <li>本协议未约定的事项，适用《中华人民共和国民法典》《电子商务法》《消费者权益保护法》等相关法律法规</li>
+  <li>本协议的最终解释权归 <span class="pm-fill">[待 PM 填：运营主体]</span> 所有</li>
+</ul>
+
+<h2>11. 联系我们</h2>
+<div class="pm-fill">[待 PM 填：公司全称 / 注册地址 / 联系电话 / 邮箱 / 客服联系方式]</div>
+
+<div class="sig-block">
+  <h3>📋 律师审定签字栏（待外部律所签字盖章）</h3>
+  <p>本 CTO 起草版 v0.1.0 需由具备执业资格的外部律所审定后方可生效。审定通过后，律所需在本栏签字并加盖律所公章。</p>
+  <p><strong>审定律所</strong>：<span class="sig-line"></span></p>
+  <p><strong>执业律师</strong>：<span class="sig-line"></span>　<strong>执业证号</strong>：<span class="sig-line"></span></p>
+  <p><strong>审定日期</strong>：<span class="sig-line"></span></p>
+  <p><strong>律所公章</strong>：<span class="sig-line" style="min-width: 320px;"></span></p>
+  <p style="font-size: 12px; color: #6b7280; margin-top: 16px;">⚠️ 未经律所签字盖章的本版本不构成法律意见，仅供内部参考与律师审定使用。</p>
+</div>
+
+<div class="footer">
+  <p>© 2026 礼有方 / GiftPilot. All rights reserved.</p>
+  <p>相关：<a href="/legal/privacy.html">隐私政策</a> · <a href="/legal/cookies.html">Cookie 政策</a> · <a href="/privacy/settings">隐私设置</a></p>
+</div>
+
 </body>
 </html>

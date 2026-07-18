@@ -3,58 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>礼有方 · Cookie 政策</title>
+  <title>礼有方 · Cookie 政策 · CTO 起草版 v0.1.0</title>
   <style>
-    body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #1f2937; line-height: 1.7; }
-    h1 { color: #23B26D; border-bottom: 2px solid #23B26D; padding-bottom: 8px; }
-    h2 { margin-top: 32px; color: #111827; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
-    th, td { border: 1px solid #e5e7eb; padding: 8px 12px; text-align: left; font-size: 14px; }
+    body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 820px; margin: 40px auto; padding: 0 20px; color: #1f2937; line-height: 1.75; }
+    h1 { color: #111827; border-bottom: 3px solid #23B26D; padding-bottom: 10px; }
+    h2 { margin-top: 32px; color: #111827; font-size: 18px; }
+    .draft-banner { background: #fef2f2; border: 2px solid #dc2626; border-radius: 6px; padding: 16px 20px; margin: 0 0 24px; color: #7f1d1d; }
+    .draft-banner h3 { margin: 0 0 8px; color: #991b1b; font-size: 15px; }
+    .meta { background: #f9fafb; border-left: 4px solid #23B26D; padding: 12px 16px; margin: 16px 0; font-size: 13px; color: #4b5563; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+    th, td { border: 1px solid #e5e7eb; padding: 6px 10px; text-align: left; vertical-align: top; }
     th { background: #f9fafb; }
-    .meta { background: #f9fafb; border-left: 4px solid #23B26D; padding: 12px 16px; margin: 16px 0; font-size: 14px; color: #4b5563; }
-    .placeholder { background: #fef3c7; border: 1px dashed #f59e0b; padding: 12px; margin: 8px 0; font-size: 13px; color: #92400e; }
-    .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280; }
+    .pm-fill { background: #fff7ed; border-left: 3px solid #ea580c; padding: 8px 12px; margin: 8px 0; font-size: 13px; color: #9a3412; border-radius: 0 3px 3px 0; }
+    .pm-fill::before { content: "🟠 [待 PM 填] "; font-weight: 600; }
+    .sig-block { background: #f9fafb; border: 2px solid #d1d5db; border-radius: 6px; padding: 24px; margin: 40px 0 24px; }
+    .sig-block h3 { margin-top: 0; color: #991b1b; }
+    .sig-line { border-bottom: 1px solid #9ca3af; display: inline-block; min-width: 220px; height: 24px; }
+    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
     a { color: #23B26D; }
   </style>
 </head>
 <body>
-  <h1>礼有方 · Cookie 政策</h1>
 
-  <div class="meta">
-    <strong>版本</strong>：v0.0.0-draft (待律师审定)<br>
-    <strong>生效日</strong>：待定<br>
-    <strong>最后更新</strong>：2026-07-17
-  </div>
+<div class="draft-banner">
+  <h3>⚠️ CTO 起草版 v0.1.0 · 非律师签字版 · 不具备法律效力</h3>
+  <p>本文件由礼有方 CTO 起草。<br>
+  <strong>本版本不构成法律意见，不具备法律效力。</strong>上线前必须由外部执业律所审定 + 签字 + 盖章后方可生效。</p>
+</div>
 
-  <h2>1. 我们使用的存储</h2>
-  <p>礼有方使用浏览器 <code>localStorage</code>（非第三方追踪 Cookie），仅在您当前设备本地存储以下数据：</p>
+<h1>礼有方 · Cookie 政策</h1>
 
-  <table>
-    <tr><th>Key</th><th>用途</th><th>分类</th><th>留存</th></tr>
-    <tr><td><code>gift_pilot_web:memory</code></td><td>AI 记忆（关系/预算/偏好）</td><td>必要</td><td>用户清除为止</td></tr>
-    <tr><td><code>gift_pilot_web:consent:v1</code></td><td>隐私同意记录</td><td>必要</td><td>用户撤回为止</td></tr>
-    <tr><td><code>gift_pilot_web:admin-audit</code></td><td>管理后台操作日志</td><td>必要</td><td>最近 500 条</td></tr>
-  </table>
+<div class="meta">
+  <p><strong>版本</strong>：v0.1.0-cto-draft（待外部律所审定）</p>
+  <p><strong>生效日</strong>：待律所审定签字后填入</p>
+  <p><strong>最后更新</strong>：2026-07-18</p>
+</div>
 
-  <h2>2. 分类说明</h2>
-  <ul>
-    <li><strong>必要</strong>：服务核心功能，无法关闭</li>
-    <li><strong>分析</strong>：暂未启用（GDPR 严格 opt-in）</li>
-    <li><strong>营销</strong>：暂未启用</li>
-  </ul>
+<h2>1. 我们使用的存储</h2>
+<p>礼有方使用浏览器 <strong>localStorage</strong> 存储（非第三方追踪 Cookie），仅在您当前设备本地存储以下数据：</p>
 
-  <h2>3. 设备指纹</h2>
-  <p>我们使用 <code>getClientDeviceId</code> 生成匿名设备标识符（GDPR Recital 30 fingerprinting）。您可在 <a href="/privacy/settings">/privacy/settings</a> 撤回同意，撤回后将清除 deviceId。</p>
+<table>
+  <tr><th>Key (localStorage)</th><th>用途</th><th>分类</th><th>留存期</th><th>删除方式</th></tr>
+  <tr>
+    <td><code>gift_pilot_web:memory</code></td>
+    <td>AI 记忆（关系画像 / 预算区间 / 偏好风格 / 擅长类目 / 发布时间 / 经营目标）</td>
+    <td><strong>必要</strong></td>
+    <td>用户清除为止</td>
+    <td><a href="/memory">/memory</a> 页"🗑️ 一键清除记忆"按钮</td>
+  </tr>
+  <tr>
+    <td><code>gift_pilot:memory</code> <em>（H5 端）</em></td>
+    <td>同上（H5 端 namespace）</td>
+    <td><strong>必要</strong></td>
+    <td>同上</td>
+    <td>H5 /memory 页一键清除</td>
+  </tr>
+  <tr>
+    <td><code>gift_pilot_web:style-profile</code></td>
+    <td>风格档案（用户每次按"📌 记住"自动学习）</td>
+    <td><strong>必要</strong></td>
+    <td>用户清除为止</td>
+    <td>/memory 页"重置风格档案"或一键清除</td>
+  </tr>
+  <tr>
+    <td><code>gift_pilot:style-profile</code> <em>（H5 端）</em></td>
+    <td>同上（H5 端 namespace）</td>
+    <td><strong>必要</strong></td>
+    <td>同上</td>
+    <td>H5 同上</td>
+  </tr>
+  <tr>
+    <td><code>gift_pilot_web:consent:v1</code></td>
+    <td>隐私同意记录（GDPR Art. 7(1) 同意证据保留）</td>
+    <td><strong>必要</strong></td>
+    <td>用户撤回为止</td>
+    <td><a href="/privacy/settings">/privacy/settings</a>"撤回同意"</td>
+  </tr>
+  <tr>
+    <td><code>gift_pilot:consent:v1</code> <em>（H5 端）</em></td>
+    <td>同上</td>
+    <td><strong>必要</strong></td>
+    <td>同上</td>
+    <td>同上</td>
+  </tr>
+  <tr>
+    <td><code>gift_pilot_web:admin-audit</code></td>
+    <td>管理后台操作日志（仅管理员）</td>
+    <td><strong>必要</strong></td>
+    <td>最近 500 条</td>
+    <td>管理员主动清理</td>
+  </tr>
+  <tr>
+    <td><code>gift_pilot_web:admin-session</code></td>
+    <td>管理后台登录会话（仅管理员）</td>
+    <td><strong>必要</strong></td>
+    <td>30 分钟自动过期</td>
+    <td>session 过期或主动登出</td>
+  </tr>
+</table>
 
-  <h2>4. 第三方追踪</h2>
-  <div class="placeholder">[律师填：阶段二/三接入第三方 SDK 时的具体清单]</div>
+<h2>2. 分类说明</h2>
+<table>
+  <tr><th>分类</th><th>说明</th><th>当前状态</th></tr>
+  <tr>
+    <td><strong>必要</strong></td>
+    <td>服务核心功能所必需，根据 GDPR Art. 6(1)(b) 合同必要 / PIPL §13(二) 履行合同必需处理，无需取得同意即可使用（但您可随时撤回存储）</td>
+    <td>已启用</td>
+  </tr>
+  <tr>
+    <td><strong>分析</strong></td>
+    <td>匿名行为分析，用于产品改进</td>
+    <td>当前未启用，未来启用需重新征求同意</td>
+  </tr>
+  <tr>
+    <td><strong>营销</strong></td>
+    <td>个性化营销推荐</td>
+    <td>当前未启用</td>
+  </tr>
+</table>
 
-  <h2>5. 管理您的偏好</h2>
-  <p>访问 <a href="/privacy/settings">/privacy/settings</a> 查看和撤回同意。</p>
+<h2>3. 设备指纹（GDPR Recital 30）</h2>
+<p>我们使用 <code>getClientDeviceId</code>（由 <code>@rockcent/platform/web-client</code> 提供）生成匿名设备标识符。该标识符：</p>
+<ul>
+  <li>由客户端自动生成，<strong>不包含</strong>您的姓名、手机号、IP 等直接标识信息</li>
+  <li>仅在您的浏览器本地存储，<strong>不上传服务器</strong>（当前 MVP 阶段）</li>
+  <li>用于会话保持 + 防止滥用（GDPR Art. 6(1)(f) 合法利益）</li>
+  <li>属于 GDPR Recital 30 所指的"在线标识符"，需您的明示同意（GDPR Art. 7）</li>
+</ul>
+<p>您可在 <a href="/privacy/settings">/privacy/settings</a> 撤回同意，撤回后将清除设备指纹，但您可能无法使用部分个性化功能。</p>
 
-  <div class="footer">
-    <p>© 2026 礼有方 / GiftPilot. All rights reserved.</p>
-    <p>相关：<a href="/legal/privacy.html">隐私政策</a> · <a href="/legal/terms.html">用户协议</a></p>
-  </div>
+<h2>4. 第三方追踪 Cookie</h2>
+<p>当前 MVP 阶段：</p>
+<ul>
+  <li><strong>不使用</strong>任何第三方追踪 Cookie（包括但不限于 Google Analytics、Facebook Pixel、百度统计等）</li>
+  <li><strong>不嵌入</strong>任何第三方追踪 SDK</li>
+</ul>
+<p>阶段二/三起接入第三方服务时，将在更新本节前重新征求您的同意：</p>
+<div class="pm-fill">[待 PM 填：阶段二/三接入的第三方追踪 SDK 清单（如火山方舟 / 微信支付 / 阿里云 ARMS 等），需 PM 决策后填入]</div>
+
+<h2>5. 管理您的偏好</h2>
+<p>您可通过以下方式管理您的存储与同意：</p>
+<ul>
+  <li><strong>查看与撤回同意</strong>：<a href="/privacy/settings">/privacy/settings</a></li>
+  <li><strong>清除 AI 记忆</strong>：<a href="/memory">/memory</a> 页"🗑️ 一键清除记忆"</li>
+  <li><strong>导出我的数据</strong>：<a href="/privacy/settings">/privacy/settings</a>"📦 导出我的数据"（GDPR Art. 15 / Art. 20）</li>
+  <li><strong>清除浏览器存储</strong>：浏览器设置 → 清除浏览数据 → Cookie 与其他站点数据（将清除所有 localStorage，包括您的同意记录）</li>
+</ul>
+
+<h2>6. 浏览器"请勿追踪"(DNT) 信号</h2>
+<p>礼有方尊重您浏览器的 DNT（Do Not Track）信号。如您开启了 DNT：</p>
+<ul>
+  <li>我们<strong>不会</strong>启用任何分析或营销类存储</li>
+  <li>我们<strong>不会</strong>在您关闭页面后跨会话追踪您</li>
+  <li>仅保留<strong>必要</strong>类存储（AI 记忆 + 同意记录），用于您主动发起的服务请求</li>
+</ul>
+
+<h2>7. 存储安全</h2>
+<p>我们采取以下措施保护您的本地存储数据：</p>
+<ul>
+  <li><strong>namespace 隔离</strong>：礼有方数据存储在专属 namespace（<code>gift_pilot_web</code> / <code>gift_pilot:</code>），不与其他应用冲突</li>
+  <li><strong>Quota 管理</strong>：超出浏览器存储配额时软警告，不抛异常影响服务</li>
+  <li><strong>容错解析</strong>：使用 <code>safeJsonParse</code> 自动容错损坏数据</li>
+  <li><strong>无明文密码</strong>：礼有方不在 localStorage 中存储任何明文密码、token、API key</li>
+</ul>
+
+<h2>8. 政策变更</h2>
+<p>如本政策发生变更，将在生效前 7 个自然日通过站内通知告知您。继续使用即视为接受变更。</p>
+
+<h2>9. 联系我们</h2>
+<div class="pm-fill">[待 PM 填：公司全称 / 注册地址 / 联系电话 / 邮箱]</div>
+
+<div class="sig-block">
+  <h3>📋 律师审定签字栏（待外部律所签字盖章）</h3>
+  <p>本 CTO 起草版 v0.1.0 需由具备执业资格的外部律所审定后方可生效。审定通过后，律所需在本栏签字并加盖律所公章。</p>
+  <p><strong>审定律所</strong>：<span class="sig-line"></span></p>
+  <p><strong>执业律师</strong>：<span class="sig-line"></span>　<strong>执业证号</strong>：<span class="sig-line"></span></p>
+  <p><strong>审定日期</strong>：<span class="sig-line"></span></p>
+  <p><strong>律所公章</strong>：<span class="sig-line" style="min-width: 320px;"></span></p>
+  <p style="font-size: 12px; color: #6b7280; margin-top: 16px;">⚠️ 未经律所签字盖章的本版本不构成法律意见，仅供内部参考与律师审定使用。</p>
+</div>
+
+<div class="footer">
+  <p>© 2026 礼有方 / GiftPilot. All rights reserved.</p>
+  <p>相关：<a href="/legal/privacy.html">隐私政策</a> · <a href="/legal/terms.html">用户协议</a> · <a href="/privacy/settings">隐私设置</a></p>
+</div>
+
 </body>
 </html>
