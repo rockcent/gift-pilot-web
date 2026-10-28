@@ -8,7 +8,7 @@ export function okResult<T>(data: T, usage?: { prompt_tokens: number; completion
     data,
     error: null,
     usage,
-    trace_id: traceId()
+    traceId: traceId()
   };
 }
 
@@ -17,6 +17,6 @@ export function errResult<T = null>(code: string, message: string): ProviderCall
     ok: false,
     data: null,
     error: { code, message },
-    trace_id: traceId()
+    traceId: traceId()
   };
 }

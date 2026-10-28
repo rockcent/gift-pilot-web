@@ -100,3 +100,9 @@ MVP 阶段：单一密码 `admin123`（.env.example 占位）。
 | Runbook | `cloud-server-ops/runbooks/giftpilot-web-deploy.md` |
 
 首次部署需先 `certbot --webroot` 领取 LE 证书（详见 runbook Step 0-3），之后 `npm run deploy:production` 即可一键更新。
+
+## 合规加固 v1.2（2026-07-30）
+
+对齐小程序同 feature（`gift-pilot-miniprogram/.specify/features/v1-2-compliance-hardening/`）：
+- **F2（类型同构）**：`src/types/index.ts` 的 `ProviderCallResult<T>` 统一为 `traceId` + `cost?`，`src/utils/trace.ts` 字段 `trace_id → traceId`。阶段三切换真实 Provider 不再类型错配。
+- 注：web 仓无支付模块，`wechat-pay` / 订单金额一致性 / 幂等 / 退款终态（F1/F3/F4/F5）在 web 不适用，列为阶段三 feature。
